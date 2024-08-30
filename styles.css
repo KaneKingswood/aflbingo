@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #3B3B58;
+    color: #FFFFFF;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #1A1A1A;
+    border-radius: 10px;
+    border: 4px solid #1A73E8;
+}
+
+.ad-slot {
+    width: 160px; /* Width of the vertical ad slot */
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #1A1A1A;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.afl-logo {
+    width: 100px; /* Increase the width of the logo */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 15px; /* Add more space between the logo and title */
+}
+
+h1 {
+    font-size: 3rem; /* Increase the font size of the title */
+    color: #FFFFFF;
+}
+
+.bingo-card {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 20px;
+    border: 5px solid #1976D2; /* Border color */
+    border-radius: 5px;
+}
+
+/* Specific background colors for each cell */
+.bingo-cell:nth-child(1),
+.bingo-cell:nth-child(3),
+.bingo-cell:nth-child(6),
+.bingo-cell:nth-child(8),
+.bingo-cell:nth-child(9),
+.bingo-cell:nth-child(11),
+.bingo-cell:nth-child(14),
+.bingo-cell:nth-child(16) {
+    background-color: #403444; /* Darker shade */
+}
+
+.bingo-cell:nth-child(2),
+.bingo-cell:nth-child(4),
+.bingo-cell:nth-child(5),
+.bingo-cell:nth-child(7),
+.bingo-cell:nth-child(10),
+.bingo-cell:nth-child(12),
+.bingo-cell:nth-child(13),
+.bingo-cell:nth-child(15) {
+    background-color: #503c5c; /* Lighter shade */
+}
+
+.bingo-cell {
+    position: relative;
+    padding: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 1px solid #000000; /* Black lines between cells */
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+}
+
+.bingo-cell.active {
+    background-color: #4CAF50;
+}
+
+.bingo-cell.incorrect {
+    background-color: #FF4C4C;
+}
+
+#current-player {
+    background-color: #1976D2; /* Pronounced color */
+    border: 3px solid #1A73E8; /* Match border with bingo card */
+    padding: 15px;
+    margin: 20px auto;
+    font-weight: bold;
+    font-size: 24px; /* Larger font size for more emphasis */
+    border-radius: 10px; /* Make the border more pronounced */
+    font-family: 'Nunito', sans-serif;
+    color: #FFF; /* White text for high contrast */
+    width: fit-content;
+    box-shadow: 0 0 15px rgba(26, 115, 232, 0.7); /* Add a glow effect */
+    text-transform: uppercase;
+}
+
+#skip-player {
+    background-color: #FF4C4C; /* Red color for the Skip Player button */
+    color: #FFF;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+    border: none;
+    font-family: 'Nunito', sans-serif;
+}
+
+.footer-text {
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    color: #FFD700; /* Gold color to stand out */
+    font-size: 14px;
+    font-family: 'Nunito', sans-serif;
+    background-color: #3B3B58; /* Match the background color of the page */
+    padding: 5px;
+    text-shadow: 1px 1px 2px #000000; /* Subtle shadow for better contrast */
+}
+
+/* Social Media Links */
+.social-media-links {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    display: flex;
+    gap: 20px; /* Space between icons */
+}
+
+/* Social Media Icons */
+.social-media-links a {
+    color: #FFD700; /* Gold color to match the footer text */
+    font-size: 24px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-media-links a:hover {
+    color: #FFFFFF; /* White color on hover */
+}
+
+/* Footer Text */
+.footer-text {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #FFD700; /* Gold color to stand out */
+    font-size: 14px;
+    font-family: 'Nunito', sans-serif;
+    background-color: #3B3B58; /* Match the background color of the page */
+    padding: 5px;
+    text-shadow: 1px 1px 2px #000000; /* Subtle shadow for better contrast */
+    z-index: 1000;
+    margin-top: 30px; /* Add space above the footer text */
+}
+
+#remaining-attempts {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Nunito', sans-serif;
+    color: #FFF;
+}
+
+/* Info icon */
+.info-icon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 40px; /* Increased font size */
+    color: #1A73E8;
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* Overlay to fade background */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+}
+
+/* Popup window */
+.info-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 20px; /* Position the pop-up to the left of the bingo board */
+    transform: translateY(-50%);
+    background-color: #1A1A1A;
+    border: 3px solid #1A73E8;
+    padding: 20px;
+    z-index: 1000;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.popup-content {
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.generate-new-card {
+    position: absolute;
+    top: 40px; /* Move the button slightly down */
+    left: 280px; /* Move the button further to the right */
+    background-color: #1A73E8;
+    color: #FFF;
+    padding: 15px 30px; /* Keep the padding for a bigger button */
+    cursor: pointer;
+    font-size: 20px; /* Keep the font size larger */
+    border-radius: 8px;
+    border: none;
+    font-family: 'Nunito', sans-serif;
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+
+
+
+
+
+
+

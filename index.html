@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AFL Bingo</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="info-icon" id="info-icon">
+            <i class="fas fa-info-circle"></i>
+        </div>
+
+<div class="footer-text">
+    All logos and brands are property of their respective owners and are used for identification purposes only.
+</div>
+
+
+  <!-- New Generate New Card button -->
+    <button id="generate-new-card" class="generate-new-card">Generate New Card</button>
+
+        <div class="title">
+            <img src="AFL-Logo.png" alt="AFL Logo" class="afl-logo">
+            <h1>AFL Bingo</h1>
+        </div>
+        <div class="bingo-card" id="bingo-card">
+            <!-- Bingo cells will be dynamically generated here -->
+        </div>
+        <div id="current-player">Current Player</div>
+        <button id="skip-player">Skip Player</button>
+        <div id="remaining-attempts">Attempts left: 42</div>
+
+<div class="social-media-links">
+    <a href="https://twitter.com/yourprofile" target="_blank">
+        <i class="fab fa-x-twitter"></i> <!-- X icon -->
+    </a>
+    <a href="https://instagram.com/yourprofile" target="_blank">
+        <i class="fab fa-instagram"></i> <!-- Instagram icon -->
+    </a>
+</div>
+
+<div class="footer-text">
+    All logos and brands are property of their respective owners and are used for identification purposes only.
+</div>
+
+
+<!-- Vertical Ad Slot -->
+    <div class="ad-slot" id="ad-slot">
+        <!-- Ad code here -->
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="YYYYYYYYYY"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+        <!-- Hidden popup for instructions -->
+        <div id="info-popup" class="info-popup">
+            <div class="popup-content">
+                <span id="close-popup" class="close-popup">&times;</span>
+                <h2>How to Play AFL Bingo</h2>
+                <p>AFL Bingo is a challenge to complete the bingo card that is randomly generated each time, a random player will appear at the bottom of the screen until you have used all 42 of your randomly generated players.</p>
+                <p>For example, if Elliot Yeo appears, he can be used to tick either Victorian or West Coast Eagles. If he fits none of the options on the card, you can skip to the next player. If you incorrectly place a player in a category, you will lose 2 attempts.</p>
+                <p>Categories can include home state, teams played for, accolades and more!</p>
+                <p>Good luck!</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
