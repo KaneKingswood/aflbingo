@@ -300,30 +300,83 @@ button:active, .info-icon:active {
 
 @media (max-width: 768px) {
     body {
-        transform: scale(0.75);
+        transform: scale(0.85); /* Adjust the scaling to fit mobile screens */
         transform-origin: top left;
+        width: 117.65%; /* Adjust width for mobile scaling */
+        height: auto; /* Allow height to adjust dynamically */
+        overflow-x: hidden; /* Prevent horizontal overflow */
     }
 
-    #current-player {
-        font-size: 22px;
-        padding: 15px;
+    .container {
+        max-width: 100%;
+        margin: 10px auto;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .ad-slot {
+        width: 120px; /* Reduce ad size for mobile */
+        top: 10px; /* Adjust ad position */
+        right: 10px;
+    }
+
+    .title {
+        flex-direction: column; /* Stack logo and title on top of each other */
+        margin-bottom: 10px;
+    }
+
+    .afl-logo {
+        width: 80px; /* Decrease logo size */
+        margin-bottom: 10px;
+    }
+
+    h1 {
+        font-size: 2.5rem; /* Decrease title size */
+        margin-bottom: 10px;
     }
 
     .bingo-card {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for better readability */
+        gap: 10px; /* Add some space between cells */
     }
 
     .bingo-cell {
+        padding: 15px;
         font-size: 14px;
-        height: 80px;
+        height: 80px; /* Decrease cell height */
     }
 
-    .generate-new-card, #skip-player {
+    #current-player {
         font-size: 18px;
+        padding: 10px;
+    }
+
+    #skip-player, .generate-new-card {
         padding: 10px 20px;
+        font-size: 18px; /* Decrease button text size */
+    }
+
+    .info-popup {
+        width: 80%;
+        padding: 20px;
+        font-size: 14px; /* Smaller font for the popup content */
+    }
+
+    .footer-text {
+        font-size: 12px;
+        padding: 5px;
     }
 }
 
+/* Mobile-specific Hover Effects */
+@media (hover: hover) and (pointer: fine) {
+    .generate-new-card:hover, 
+    .info-icon:hover, 
+    #skip-player:hover {
+        transform: scale(1.1); /* Slightly increase on hover */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add subtle shadow */
+    }
+}
 
 
 
