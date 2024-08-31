@@ -7,6 +7,11 @@ body {
     text-align: center;
     margin: 0;
     padding: 0;
+    transform: scale(0.85); /* Scale content to 85% */
+    transform-origin: top left; /* Set the origin point for the transformation */
+    width: 117.65%; /* Adjust the width to counteract the scale */
+    height: 117.65%; /* Adjust the height to counteract the scale */
+    overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
 .container {
@@ -16,14 +21,18 @@ body {
     background-color: #1A1A1A;
     border-radius: 10px;
     border: 4px solid #1A73E8;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .ad-slot {
-    width: 160px; /* Width of the vertical ad slot */
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
+    width: 260px; /* Width of the vertical ad slot */
+    position: fixed; /* Keep the ad slot in a fixed position */
+    right: 10px; /* Adjust the position to ensure it's fully visible */
+    top: 30%; /* Center vertically */
+    transform: translateY(-0%); /* Adjust to vertically center */
     background-color: #1A1A1A;
     padding: 10px;
     border-radius: 5px;
@@ -56,6 +65,7 @@ h1 {
     margin-top: 20px;
     border: 5px solid #1976D2; /* Border color */
     border-radius: 5px;
+    margin-bottom: 20px; /* Add margin to create space for the footer */
 }
 
 /* Specific background colors for each cell */
@@ -134,9 +144,10 @@ h1 {
     font-family: 'Nunito', sans-serif;
 }
 
+/* Footer Text */
 .footer-text {
-    position: fixed;
-    bottom: 10px;
+    position: absolute;
+    bottom: -400px; /* Lower the footer text */
     width: 100%;
     text-align: center;
     color: #FFD700; /* Gold color to stand out */
@@ -145,45 +156,7 @@ h1 {
     background-color: #3B3B58; /* Match the background color of the page */
     padding: 5px;
     text-shadow: 1px 1px 2px #000000; /* Subtle shadow for better contrast */
-}
-
-/* Social Media Links */
-.social-media-links {
-    position: fixed;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1000;
-    display: flex;
-    gap: 20px; /* Space between icons */
-}
-
-/* Social Media Icons */
-.social-media-links a {
-    color: #FFD700; /* Gold color to match the footer text */
-    font-size: 24px;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.social-media-links a:hover {
-    color: #FFFFFF; /* White color on hover */
-}
-
-/* Footer Text */
-.footer-text {
-    position: fixed;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    color: #FFD700; /* Gold color to stand out */
-    font-size: 14px;
-    font-family: 'Nunito', sans-serif;
-    background-color: #3B3B58; /* Match the background color of the page */
-    padding: 5px;
-    text-shadow: 1px 1px 2px #000000; /* Subtle shadow for better contrast */
-    z-index: 1000;
+    z-index: 900;
     margin-top: 30px; /* Add space above the footer text */
 }
 
@@ -198,24 +171,24 @@ h1 {
 /* Info icon */
 .info-icon {
     position: absolute;
-    top: 10px;
-    left: 10px;
-    font-size: 40px; /* Increased font size */
+    top: 30px;
+    left: -20x; /* Move icon to the left */
+    font-size: 55px; /* Increase size */
     color: #1A73E8;
     cursor: pointer;
-    padding: 5px;
+    padding: 8px;
+    z-index: 900;
 }
 
-/* Overlay to fade background */
 .overlay {
-    display: none;
+    display: none; /* Initially hidden */
     position: fixed;
-    top: 0;
+    top: 500;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 999;
+    width: 500%;
+    height: 500%;
+    background: rgba(0, 0, 0, 0.7); /* Black with 70% opacity */
+    z-index: 999; /* Make sure it's above other content but below the popup */
 }
 
 /* Popup window */
@@ -223,15 +196,15 @@ h1 {
     display: none;
     position: fixed;
     top: 50%;
-    left: 20px; /* Position the pop-up to the left of the bingo board */
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the pop-up horizontally and vertically */
     background-color: #1A1A1A;
     border: 3px solid #1A73E8;
-    padding: 20px;
+    padding: 50px; /* Increased padding by 2.5x */
     z-index: 1000;
-    width: 300px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    width: 750px; /* Increased width by 2.5x */
+    border-radius: 25px; /* Slightly larger border radius for smoother corners */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5); /* Slightly larger shadow */
 }
 
 .popup-content {
@@ -243,25 +216,32 @@ h1 {
     position: absolute;
     top: 10px;
     right: 10px;
-    font-size: 24px;
+    font-size: 60px;
     color: #FFFFFF;
     cursor: pointer;
 }
 
 .generate-new-card {
     position: absolute;
-    top: 40px; /* Move the button slightly down */
-    left: 280px; /* Move the button further to the right */
+    top: 40px;
+    left: -450px; /* Move button to the left */
     background-color: #1A73E8;
     color: #FFF;
-    padding: 15px 30px; /* Keep the padding for a bigger button */
+    padding: 15px 30px;
     cursor: pointer;
-    font-size: 20px; /* Keep the font size larger */
+    font-size: 32px;
     border-radius: 8px;
     border: none;
     font-family: 'Nunito', sans-serif;
-    z-index: 1000; /* Ensure it appears above other elements */
+    z-index: 900;
 }
+
+
+
+
+
+
+
 
 
 

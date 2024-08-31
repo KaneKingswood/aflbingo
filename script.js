@@ -257,6 +257,9 @@ function checkPlayerAgainstCriterion(cell) {
             }
         }, 500); // Flash red for 500ms before moving to the next player
     }
+
+document.body.style.zoom = "85%";
+
 }
 
 function updateRemainingPlayers() {
@@ -277,10 +280,10 @@ function showMinusTwoAnimation(cell) {
 }
 
 
-// JavaScript for handling the info popup
+// JavaScript for handling the info popup and overlay
 document.getElementById('info-icon').addEventListener('click', function () {
     document.getElementById('info-popup').style.display = 'block';
-    document.querySelector('.overlay').style.display = 'block';
+    document.querySelector('.overlay').style.display = 'block'; // Show overlay
     document.getElementById('info-popup').classList.add('slide-in');
 });
 
@@ -292,20 +295,24 @@ document.querySelector('.overlay').addEventListener('click', function () {
     closePopup();
 });
 
-document.getElementById('generate-new-card').addEventListener('click', function () {
-    location.reload(); // This reloads the page
-});
-
-
 function closePopup() {
     document.getElementById('info-popup').classList.remove('slide-in');
     document.getElementById('info-popup').classList.add('slide-out');
     setTimeout(() => {
         document.getElementById('info-popup').style.display = 'none';
-        document.querySelector('.overlay').style.display = 'none';
+        document.querySelector('.overlay').style.display = 'none'; // Hide overlay
         document.getElementById('info-popup').classList.remove('slide-out');
     }, 300); // Match the duration of the slide-out animation
 }
+
+
+
+
+
+
+
+
+
 
 
 
