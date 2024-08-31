@@ -175,7 +175,7 @@ bingoCardCriteria.forEach(criterion => {
     const cell = document.createElement("div");
     cell.classList.add("bingo-cell");
     cell.textContent = criterion;
-    cell.addEventListener("click", () => checkPlayerAgainstCriterion(cell));
+    cell.addEventListener("click", (event) => checkPlayerAgainstCriterion(cell, event));
     bingoCard.appendChild(cell);
 });
 
@@ -197,7 +197,8 @@ minusTwoDiv.style.fontSize = "24px";
 minusTwoDiv.style.color = "#FF4C4C";
 minusTwoDiv.style.fontWeight = "bold";
 minusTwoDiv.style.opacity = "0";
-minusTwoDiv.style.transition = "opacity 0.5s ease-out, top 0.5s ease-out";
+minusTwoDiv.style.transition = "opacity 0.5s ease-out";
+minusTwoDiv.style.textShadow = "2px 2px 8px rgba(0, 0, 0, 0.7)"; // Add drop shadow
 document.body.appendChild(minusTwoDiv);
 
 // Display the first player
@@ -223,12 +224,17 @@ skipPlayerButton.addEventListener("click", () => {
 
 function displayCurrentPlayer() {
     if (currentPlayerIndex < players.length) {
-        const player = players[currentPlayerIndex];
-        currentPlayerDiv.textContent = player.name;
+        currentPlayerDiv.classList.add('fade-out');
+        setTimeout(() => {
+            const player = players[currentPlayerIndex];
+            currentPlayerDiv.textContent = player.name;
+            currentPlayerDiv.classList.remove('fade-out');
+            currentPlayerDiv.classList.add('fade-in');
+        }, 500);
     }
 }
 
-function checkPlayerAgainstCriterion(cell) {
+function checkPlayerAgainstCriterion(cell, event) {
     const player = players[currentPlayerIndex];
     if (player.criteria.includes(cell.textContent)) {
         cell.classList.add("active");
@@ -243,7 +249,7 @@ function checkPlayerAgainstCriterion(cell) {
         }
     } else {
         cell.classList.add("incorrect");
-        showMinusTwoAnimation(cell);
+        showMinusTwoAnimation(event); // Pass the event to position the "-2" over the mouse
         setTimeout(() => {
             cell.classList.remove("incorrect");
             currentPlayerIndex++;
@@ -257,34 +263,28 @@ function checkPlayerAgainstCriterion(cell) {
             }
         }, 500); // Flash red for 500ms before moving to the next player
     }
-
-document.body.style.zoom = "85%";
-
 }
 
 function updateRemainingPlayers() {
     remainingPlayersDiv.textContent = `Players left: ${attemptsLeft}`; // Updated text to reflect the correct count
 }
 
-function showMinusTwoAnimation(cell) {
-    const rect = cell.getBoundingClientRect();
-    minusTwoDiv.style.left = `${rect.left + rect.width / 2}px`;
-    minusTwoDiv.style.top = `${rect.top - 20}px`;
+function showMinusTwoAnimation(event) {
+    minusTwoDiv.style.left = `${event.pageX}px`; // Use pageX for more accurate positioning
+    minusTwoDiv.style.top = `${event.pageY - 20}px`; // Adjust slightly above the cursor
     minusTwoDiv.style.opacity = "1";
-    minusTwoDiv.style.transform = "scale(1.5)"; // Make the "-2" more pronounced
-    minusTwoDiv.style.textShadow = "2px 2px 8px rgba(0, 0, 0, 0.7)"; // Add drop shadow
+    minusTwoDiv.style.transform = "scale(1.5)";
+    minusTwoDiv.style.textShadow = "4px 4px 10px rgba(0, 0, 0, 1)"; // Increase shadow for clarity
 
     setTimeout(() => {
         minusTwoDiv.style.opacity = "0";
-    }, 1000); // Keep the "-2" visible for 1 second before fading out
+    }, 1500); // Keep the "-2" visible for 1.5 seconds before fading out
 }
 
-
-// JavaScript for handling the info popup and overlay
+// JavaScript for handling the info popup
 document.getElementById('info-icon').addEventListener('click', function () {
     document.getElementById('info-popup').style.display = 'block';
-    document.querySelector('.overlay').style.display = 'block'; // Show overlay
-    document.getElementById('info-popup').classList.add('slide-in');
+    document.querySelector('.overlay').style.display = 'block';
 });
 
 document.getElementById('close-popup').addEventListener('click', function () {
@@ -295,15 +295,17 @@ document.querySelector('.overlay').addEventListener('click', function () {
     closePopup();
 });
 
+document.getElementById('generate-new-card').addEventListener('click', function () {
+    location.reload(); // This reloads the page
+});
+
 function closePopup() {
-    document.getElementById('info-popup').classList.remove('slide-in');
-    document.getElementById('info-popup').classList.add('slide-out');
-    setTimeout(() => {
-        document.getElementById('info-popup').style.display = 'none';
-        document.querySelector('.overlay').style.display = 'none'; // Hide overlay
-        document.getElementById('info-popup').classList.remove('slide-out');
-    }, 300); // Match the duration of the slide-out animation
+    document.getElementById('info-popup').style.display = 'none';
+    document.querySelector('.overlay').style.display = 'none';
 }
+
+// Lock screen zoom to 100%
+document.body.style.zoom = "90%";
 
 
 

@@ -118,30 +118,53 @@ h1 {
 }
 
 #current-player {
-    background-color: #1976D2; /* Pronounced color */
-    border: 3px solid #1A73E8; /* Match border with bingo card */
-    padding: 15px;
+    background-color: #1A73E8; /* Brighter blue for better contrast */
+    border: 3px solid #0F4C8E; /* Darker border for a more defined look */
+    padding: 20px; /* Increased padding for a larger button */
     margin: 20px auto;
     font-weight: bold;
-    font-size: 24px; /* Larger font size for more emphasis */
-    border-radius: 10px; /* Make the border more pronounced */
+    font-size: 26px; /* Increased font size */
+    border-radius: 12px; /* Smoother corners */
     font-family: 'Nunito', sans-serif;
-    color: #FFF; /* White text for high contrast */
+    color: #FFF;
     width: fit-content;
-    box-shadow: 0 0 15px rgba(26, 115, 232, 0.7); /* Add a glow effect */
+    box-shadow: 0 0 20px rgba(26, 115, 232, 0.8); /* Stronger glow effect */
     text-transform: uppercase;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-out {
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+.fade-in {
+    opacity: 1;
+    transform: scale(1);
+}
+
+#current-player:hover {
+    background-color: #1559A9; /* Slightly darker on hover */
+    transform: scale(1.05); /* Slightly larger on hover */
 }
 
 #skip-player {
-    background-color: #FF4C4C; /* Red color for the Skip Player button */
+    background-color: #FF5C5C; /* Slightly brighter red */
     color: #FFF;
-    padding: 10px 20px;
+    padding: 12px 24px; /* Increased padding for a larger button */
     margin-top: 20px;
     cursor: pointer;
-    font-size: 18px;
-    border-radius: 5px;
+    font-size: 20px; /* Increased font size */
+    border-radius: 8px;
     border: none;
     font-family: 'Nunito', sans-serif;
+    box-shadow: 0 0 15px rgba(255, 92, 92, 0.6); /* Add subtle shadow */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#skip-player:hover {
+    background-color: #E04444; /* Darker red on hover */
+    transform: scale(1.05); /* Slightly larger on hover */
 }
 
 /* Footer Text */
@@ -161,34 +184,41 @@ h1 {
 }
 
 #remaining-attempts {
-    margin-top: 20px;
+    margin-top: 15px;
     font-size: 18px;
     font-weight: bold;
     font-family: 'Nunito', sans-serif;
     color: #FFF;
+    background-color: #333; /* Background to make it more distinct */
+    padding: 10px 15px; /* Add some padding */
+    border-radius: 8px; /* Rounded corners */
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    transition: transform 0.2s ease;
+}
+
+#remaining-attempts:hover {
+    transform: scale(1.05); /* Slightly larger on hover */
 }
 
 /* Info icon */
 .info-icon {
     position: absolute;
     top: 30px;
-    left: -20x; /* Move icon to the left */
+    left: 20px; /* Move icon to the left */
     font-size: 55px; /* Increase size */
     color: #1A73E8;
     cursor: pointer;
     padding: 8px;
     z-index: 900;
+    transition: color 0.3s ease, transform 0.2s ease;
 }
 
-.overlay {
-    display: none; /* Initially hidden */
-    position: fixed;
-    top: 500;
-    left: 0;
-    width: 500%;
-    height: 500%;
-    background: rgba(0, 0, 0, 0.7); /* Black with 70% opacity */
-    z-index: 999; /* Make sure it's above other content but below the popup */
+.info-icon:hover {
+    color: #1559A9; /* Slightly darker on hover */
+    transform: scale(1.2); /* Slightly larger on hover */
 }
 
 /* Popup window */
@@ -201,7 +231,7 @@ h1 {
     background-color: #1A1A1A;
     border: 3px solid #1A73E8;
     padding: 50px; /* Increased padding by 2.5x */
-    z-index: 1000;
+    z-index: 8000;
     width: 750px; /* Increased width by 2.5x */
     border-radius: 25px; /* Slightly larger border radius for smoother corners */
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5); /* Slightly larger shadow */
@@ -214,11 +244,22 @@ h1 {
 
 .close-popup {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 0px;
+    right: 15px;
     font-size: 60px;
     color: #FFFFFF;
     cursor: pointer;
+}
+
+.overlay {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 500;
+    left: 0;
+    width: 300%;
+    height: 300%;
+    background: rgba(0, 0, 0, 0.4); /* Black with 70% opacity */
+    z-index: 999; /* Make sure it's above other content but below the popup */
 }
 
 .generate-new-card {
@@ -234,7 +275,60 @@ h1 {
     border: none;
     font-family: 'Nunito', sans-serif;
     z-index: 900;
+    box-shadow: 0 0 20px rgba(26, 115, 232, 0.8); /* Add glow effect */
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
+
+.generate-new-card:hover {
+    background-color: #1559A9; /* Slightly darker on hover */
+    transform: scale(1.05); /* Slightly larger on hover */
+}
+
+button, .info-icon {
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover, .info-icon:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+button:active, .info-icon:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    body {
+        transform: scale(0.75);
+        transform-origin: top left;
+    }
+
+    #current-player {
+        font-size: 22px;
+        padding: 15px;
+    }
+
+    .bingo-card {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .bingo-cell {
+        font-size: 14px;
+        height: 80px;
+    }
+
+    .generate-new-card, #skip-player {
+        font-size: 18px;
+        padding: 10px 20px;
+    }
+}
+
+
+
+
+
+
 
 
 
