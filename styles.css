@@ -298,11 +298,12 @@ button:active, .info-icon:active {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
+/* General Mobile Styles */
 @media (max-width: 768px) {
     body {
-        transform: scale(0.85); /* Adjust the scaling to fit mobile screens */
+        transform: scale(0.75); /* Scale down for mobile screens */
         transform-origin: top left;
-        width: 117.65%; /* Adjust width for mobile scaling */
+        width: 133.33%; /* Adjust width to counteract the scale */
         height: auto; /* Allow height to adjust dynamically */
         overflow-x: hidden; /* Prevent horizontal overflow */
     }
@@ -312,21 +313,101 @@ button:active, .info-icon:active {
         margin: 10px auto;
         padding: 10px;
         border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center content horizontally */
     }
 
-    .ad-slot {
-        width: 120px; /* Reduce ad size for mobile */
-        top: 10px; /* Adjust ad position */
-        right: 10px;
+    .info-icon {
+        position: absolute;
+        top: 10px; /* Adjust for mobile */
+        left: 10px; /* Move it to the top left corner */
+        font-size: 35px; /* Smaller size for mobile */
+        color: #1A73E8;
+        cursor: pointer;
+        padding: 5px;
+        z-index: 900;
     }
+
+.generate-new-card {
+    position: absolute;
+    top: 80px; /* Adjust this value to move the button under the info icon */
+    left: 8px; /* Align with the info icon on the left */
+    background-color: #1A73E8;
+    color: #FFF;
+    padding: 10px 20px; /* Smaller padding for mobile */
+    cursor: pointer;
+    font-size: 14px; /* Decrease button text size */
+    border-radius: 8px;
+    border: none;
+    font-family: 'Nunito', sans-serif;
+    z-index: 900;
+}
+
+
+    .ad-slot {
+    width: 60%; /* Set the width of the ad slot */
+    height: 100px; /* Adjust the height as needed */
+    background-color: #1A1A1A;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1; /* Ensure it's above background elements */
+    position: relative; /* Keep it within the flow of the page */
+    margin: 20px auto; /* Center the ad slot horizontally and add space around it */
+    text-align: center; /* Center content inside the ad slot */
+}
+
+/* Adjust the container to ensure the ad slot stays in the empty space below the game */
+.container {
+    margin-bottom: 150px; /* Add enough margin at the bottom of the container to make room for the ad slot */
+}
+
+
+
+
+/* Popup window */
+.info-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1A1A1A;
+    border: 3px solid #1A73E8;
+    padding: 20px;
+    z-index: 1200;
+    width: 90%; /* Adjust width to fit smaller screens */
+    max-width: 500px; /* Limit the maximum width on larger screens */
+    border-radius: 25px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box; /* Ensure padding doesn't increase the width */
+    overflow-y: auto; /* Allow scrolling if content overflows */
+    max-height: 90vh; /* Ensure the popup fits within the viewport */
+}
+
+.popup-content {
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #FFFFFF;
+    cursor: pointer;
+
+}
 
     .title {
         flex-direction: column; /* Stack logo and title on top of each other */
-        margin-bottom: 10px;
+        margin-top: 60px; /* Add space below the buttons */
     }
 
     .afl-logo {
-        width: 80px; /* Decrease logo size */
+        width: 135px; /* Decrease logo size */
         margin-bottom: 10px;
     }
 
@@ -336,35 +417,34 @@ button:active, .info-icon:active {
     }
 
     .bingo-card {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns for better readability */
-        gap: 10px; /* Add some space between cells */
+        grid-template-columns: repeat(4, 1fr); /* Ensure 4 columns layout */
+        gap: 5px; /* Add some space between cells */
+        width: 80%; /* Make the bingo card smaller to fit on screen */
+        margin-bottom: 20px; /* Add margin to create space for the ad and buttons */
     }
 
     .bingo-cell {
-        padding: 15px;
-        font-size: 14px;
-        height: 80px; /* Decrease cell height */
+        padding: 10px; /* Reduce padding inside cells */
+        font-size: 12px; /* Decrease font size */
+        height: 60px; /* Decrease cell height */
     }
 
     #current-player {
-        font-size: 18px;
+        font-size: 16px;
         padding: 10px;
+        margin-top: 15px; /* Add some space above */
     }
 
-    #skip-player, .generate-new-card {
-        padding: 10px 20px;
-        font-size: 18px; /* Decrease button text size */
-    }
-
-    .info-popup {
-        width: 80%;
-        padding: 20px;
-        font-size: 14px; /* Smaller font for the popup content */
+    #skip-player, #remaining-attempts {
+        padding: 8px 16px; /* Smaller padding for buttons */
+        font-size: 14px; /* Decrease button text size */
+        margin-top: 10px;
     }
 
     .footer-text {
         font-size: 12px;
         padding: 5px;
+        margin-bottom: 10px; /* Add space above the footer text */
     }
 }
 
