@@ -212,7 +212,7 @@ const playersDatabase = [
     { name: "Gary Ablett Sr.", criteria: ["50+ goals", "100+ goals", "Won a premiership", "Played for Geelong", "Played for Hawthorn", "Victoria", "Coleman medal", "All Australian squad", "Played a finals game"] },
     { name: "Wayne Carey", criteria: ["50+ goals", "100+ goals", "Won a premiership", "Played for Adelaide", "Played for North Melbourne", "New South Wales", "All Australian squad", "Played a finals game"] },
     { name: "Wayne Carey", criteria: ["50+ goals", "100+ goals", "Won a premiership", "Played for Adelaide", "Played for North Melbourne", "New South Wales", "All Australian squad", "Played a finals game"] },
-    { name: "Chriss Judd", criteria: ["50+ goals", "100+ goals", "Won a premiership","Top 10 draft pick", "Played for West Coast", "Played for Carlton", "Victoria", "All Australian squad", "Brownlow medalist", "Played a finals game"] },
+    { name: "Chris Judd", criteria: ["50+ goals", "100+ goals", "Won a premiership","Top 10 draft pick", "Played for West Coast", "Played for Carlton", "Victoria", "All Australian squad", "Brownlow medalist", "Played a finals game"] },
     { name: "Gary Ablett Jr.", criteria: ["50+ goals", "100+ goals", "Won a premiership", "Played for Geelong", "Played for Gold Coast", "Victoria", "All Australian squad", "Brownlow medalist", "Played a finals game"] },
 
 ];
