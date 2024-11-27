@@ -1,0 +1,554 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #3B3B58;
+    color: #FFFFFF;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    transform: scale(0.85); /* Scale content to 85% */
+    transform-origin: top left; /* Set the origin point for the transformation */
+    width: 117.65%; /* Adjust the width to counteract the scale */
+    height: 117.65%; /* Adjust the height to counteract the scale */
+    overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #1A1A1A;
+    border-radius: 10px;
+    border: 4px solid #1A73E8;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ad-slot {
+    width: 260px; /* Width of the vertical ad slot */
+    position: fixed; /* Keep the ad slot in a fixed position */
+    right: 10px; /* Adjust the position to ensure it's fully visible */
+    top: 30%; /* Center vertically */
+    transform: translateY(-0%); /* Adjust to vertically center */
+    background-color: #1A1A1A;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.afl-logo {
+    width: 100px; /* Increase the width of the logo */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 15px; /* Add more space between the logo and title */
+}
+
+h1 {
+    font-size: 3rem; /* Increase the font size of the title */
+    color: #FFFFFF;
+}
+
+.bingo-card {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 20px;
+    border: 5px solid #1976D2; /* Border color */
+    border-radius: 5px;
+    margin-bottom: 20px; /* Add margin to create space for the footer */
+}
+
+/* Specific background colors for each cell */
+.bingo-cell:nth-child(1),
+.bingo-cell:nth-child(3),
+.bingo-cell:nth-child(6),
+.bingo-cell:nth-child(8),
+.bingo-cell:nth-child(9),
+.bingo-cell:nth-child(11),
+.bingo-cell:nth-child(14),
+.bingo-cell:nth-child(16) {
+    background-color: #403444; /* Darker shade */
+}
+
+.bingo-cell:nth-child(2),
+.bingo-cell:nth-child(4),
+.bingo-cell:nth-child(5),
+.bingo-cell:nth-child(7),
+.bingo-cell:nth-child(10),
+.bingo-cell:nth-child(12),
+.bingo-cell:nth-child(13),
+.bingo-cell:nth-child(15) {
+    background-color: #503c5c; /* Lighter shade */
+}
+
+.bingo-cell {
+    position: relative;
+    padding: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 1px solid #000000; /* Black lines between cells */
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+}
+
+.bingo-cell.active {
+    background-color: #4CAF50;
+}
+
+.bingo-cell.incorrect {
+    background-color: #FF4C4C;
+}
+
+#current-player {
+    background-color: #1A73E8; /* Brighter blue for better contrast */
+    border: 3px solid #0F4C8E; /* Darker border for a more defined look */
+    padding: 20px; /* Increased padding for a larger button */
+    margin: 20px auto;
+    font-weight: bold;
+    font-size: 26px; /* Increased font size */
+    border-radius: 12px; /* Smoother corners */
+    font-family: 'Nunito', sans-serif;
+    color: #FFF;
+    width: fit-content;
+    box-shadow: 0 0 20px rgba(26, 115, 232, 0.8); /* Stronger glow effect */
+    text-transform: uppercase;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-out {
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+.fade-in {
+    opacity: 1;
+    transform: scale(1);
+
+}
+
+#skip-player {
+    background-color: #FF5C5C; /* Slightly brighter red */
+    color: #FFF;
+    padding: 12px 12px; /* Increased padding for a larger button */
+    margin-top: 25px;
+    cursor: pointer;
+    font-size: 30px; /* Increased font size */
+    border-radius: 4px;
+    border: none;
+    text-transform: uppercase;
+    font-family: 'Nunito', sans-serif;
+    box-shadow: 0 0 15px rgba(255, 92, 92, 0.6); /* Add subtle shadow */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#skip-player:hover {
+    background-color: #E04444; /* Darker red on hover */
+    transform: scale(1.05); /* Slightly larger on hover */
+}
+
+/* Footer Text */
+.footer-text {
+    position: absolute;
+    bottom: -400px; /* Lower the footer text */
+    width: 100%;
+    text-align: center;
+    color: #FFD700; /* Gold color to stand out */
+    font-size: 14px;
+    font-family: 'Nunito', sans-serif;
+    background-color: #3B3B58; /* Match the background color of the page */
+    padding: 5px;
+    text-shadow: 1px 1px 2px #000000; /* Subtle shadow for better contrast */
+    z-index: 900;
+    margin-top: 30px; /* Add space above the footer text */
+}
+
+#remaining-attempts {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Nunito', sans-serif;
+    color: #FFF;
+    background-color: #333; /* Background to make it more distinct */
+    padding: 10px 15px; /* Add some padding */
+    border-radius: 8px; /* Rounded corners */
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    text-transform: uppercase;
+    transition: transform 0.2s ease;
+}
+
+/* Info icon */
+.info-icon {
+    position: absolute;
+    top: 30px;
+    left: 20px; /* Move icon to the left */
+    font-size: 55px; /* Increase size */
+    color: #1A73E8;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 900;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.info-icon:hover {
+    color: #1559A9; /* Slightly darker on hover */
+    transform: scale(1.2); /* Slightly larger on hover */
+}
+
+/* Popup window */
+.info-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the pop-up horizontally and vertically */
+    background-color: #1A1A1A;
+    border: 3px solid #1A73E8;
+    padding: 50px; /* Increased padding by 2.5x */
+    z-index: 8000;
+    width: 750px; /* Increased width by 2.5x */
+    border-radius: 25px; /* Slightly larger border radius for smoother corners */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5); /* Slightly larger shadow */
+}
+
+.popup-content {
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.close-popup {
+    position: absolute;
+    top: 0px;
+    right: 15px;
+    font-size: 60px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.overlay {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 500;
+    left: 0;
+    width: 150%;
+    height: 138%;
+    background: rgba(0, 0, 0, 0.4); /* Black with 70% opacity */
+    z-index: 999; /* Make sure it's above other content but below the popup */
+}
+
+.generate-new-card {
+    position: absolute;
+    top: 40px;
+    left: -450px; /* Move button to the left */
+    background-color: #1A73E8;
+    color: #FFF;
+    padding: 15px 30px;
+    cursor: pointer;
+    font-size: 32px;
+    border-radius: 8px;
+    border: none;
+    font-family: 'Nunito', sans-serif;
+    z-index: 900;
+    box-shadow: 0 0 20px rgba(26, 115, 232, 0.8); /* Add glow effect */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.generate-new-card:hover {
+    background-color: #1559A9; /* Slightly darker on hover */
+    transform: scale(1.05); /* Slightly larger on hover */
+}
+
+.back-to-home {
+    position: absolute;
+    top: 160px;
+    left: -450px; /* Move button to the left */
+    background-color: #1A73E8;
+    color: #FFF;
+    padding: 15px 30px;
+    cursor: pointer;
+    font-size: 32px;
+    border-radius: 8px;
+    border: none;
+    font-family: 'Nunito', sans-serif;
+    z-index: 900;
+    box-shadow: 0 0 20px rgba(26, 115, 232, 0.8); /* Add glow effect */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.back-to-home:hover {
+    background-color: #0059C1; /* Darker blue on hover */
+    transform: scale(1.05); /* Slightly larger on hover */
+}
+
+.back-to-home:active {
+    transform: scale(0.95); /* Slightly smaller on click */
+}
+
+.social-media-icons {
+    position: absolute;
+    top: 270px;
+    left: -350px; /* Adjust this to position the icons properly */
+    display: flex;
+    gap: 10px;
+    background-color: #1A1A1A; /* Box background color */
+    padding: 10px; /* Padding inside the box */
+    border-radius: 8px; /* Rounded corners for the box */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add a subtle shadow around the box */
+    border: 2px solid #1A73E8; /* Border around the box */
+}
+
+.social-media-icons a {
+    color: #1A73E8;
+    font-size: 25px;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-media-icons a:hover {
+    color: #1559A9;
+    transform: scale(1.2);
+}
+
+button, .info-icon {
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover, .info-icon:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+button:active, .info-icon:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* General Mobile Styles */
+@media (max-width: 768px) {
+    body {
+        transform: scale(0.75); /* Scale down for mobile screens */
+        transform-origin: top left;
+        width: 133.33%; /* Adjust width to counteract the scale */
+        height: auto; /* Allow height to adjust dynamically */
+        overflow-x: hidden; /* Prevent horizontal overflow */
+    }
+
+    .container {
+        max-width: 100%;
+        margin: 10px auto;
+        padding: 10px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center content horizontally */
+    }
+
+    .info-icon {
+        position: absolute;
+        top: 10px; /* Adjust for mobile */
+        left: 10px; /* Move it to the top left corner */
+        font-size: 35px; /* Smaller size for mobile */
+        color: #1A73E8;
+        cursor: pointer;
+        padding: 5px;
+        z-index: 900;
+    }
+
+.back-to-home {
+    position: absolute;
+    top: 0px; /* Adjust this value to move the button under the info icon */
+    left: 8px; /* Align with the info icon on the left */
+    background-color: #1A73E8;
+    color: #FFF;
+    padding: 10px 20px; /* Smaller padding for mobile */
+    cursor: pointer;
+    font-size: 14px; /* Decrease button text size */
+    border-radius: 8px;
+    border: none;
+    font-family: 'Nunito', sans-serif;
+    z-index: 900;
+}
+
+    .ad-slot {
+    width: 60%; /* Set the width of the ad slot */
+    height: 100px; /* Adjust the height as needed */
+    background-color: #1A1A1A;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1; /* Ensure it's above background elements */
+    position: relative; /* Keep it within the flow of the page */
+    margin: 20px auto; /* Center the ad slot horizontally and add space around it */
+    text-align: center; /* Center content inside the ad slot */
+}
+
+/* Adjust the container to ensure the ad slot stays in the empty space below the game */
+.container {
+    margin-bottom: 150px; /* Add enough margin at the bottom of the container to make room for the ad slot */
+}
+
+/* Social Media Icons */
+.social-media-icons {
+    position: absolute;
+    top: 38px;
+    left: 450px; /* Adjust this to position the icons properly */
+    display: flex;
+    gap: 10px;
+    background-color: #1A1A1A; /* Box background color */
+    padding: 10px; /* Padding inside the box */
+    border-radius: 8px; /* Rounded corners for the box */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add a subtle shadow around the box */
+    border: 2px solid #1A73E8; /* Border around the box */
+}
+
+.social-media-icons a {
+    color: #1A73E8;
+    font-size: 15px;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-media-icons a:hover {
+    color: #1559A9;
+    transform: scale(1.2);
+}
+
+/* Popup window */
+.info-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1A1A1A;
+    border: 3px solid #1A73E8;
+    padding: 20px;
+    z-index: 1200;
+    width: 90%; /* Adjust width to fit smaller screens */
+    max-width: 500px; /* Limit the maximum width on larger screens */
+    border-radius: 25px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box; /* Ensure padding doesn't increase the width */
+    overflow-y: auto; /* Allow scrolling if content overflows */
+    max-height: 90vh; /* Ensure the popup fits within the viewport */
+}
+
+.popup-content {
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #FFFFFF;
+    cursor: pointer;
+
+}
+
+    .title {
+        flex-direction: column; /* Stack logo and title on top of each other */
+        margin-top: 60px; /* Add space below the buttons */
+    }
+
+    .afl-logo {
+        width: 135px; /* Decrease logo size */
+        margin-bottom: 10px;
+    }
+
+    h1 {
+        font-size: 2.5rem; /* Decrease title size */
+        margin-bottom: 10px;
+    }
+
+    .bingo-card {
+        grid-template-columns: repeat(4, 1fr); /* Ensure 4 columns layout */
+        gap: 5px; /* Add some space between cells */
+        width: 80%; /* Make the bingo card smaller to fit on screen */
+        margin-bottom: 20px; /* Add margin to create space for the ad and buttons */
+    }
+
+    .bingo-cell {
+        padding: 10px; /* Reduce padding inside cells */
+        font-size: 12px; /* Decrease font size */
+        height: 60px; /* Decrease cell height */
+    }
+
+    #current-player {
+        font-size: 16px;
+        padding: 10px;
+        margin-top: 15px; /* Add some space above */
+    }
+
+    #skip-player, #remaining-attempts {
+        padding: 8px 16px; /* Smaller padding for buttons */
+        font-size: 14px; /* Decrease button text size */
+        
+    }
+
+    .footer-text {
+        font-size: 12px;
+        padding: 3px;
+        margin-bottom: 10px; /* Add space above the footer text */
+    }
+}
+
+#reset-timer {
+    text-align: center;
+    margin: 20px auto; /* Center horizontally */
+    font-weight: bold;
+    font-size: 24px;
+    color: #FFFFFF; /* White text */
+    padding: 10px 20px;
+    background-color: #FF4500; /* Bright orange background */
+    border-radius: 10px; /* Rounded edges */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    display: inline-block; /* Fit to content */
+}
+
+/* Optional pulsing effect */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+/* Mobile-specific Hover Effects */
+@media (hover: hover) and (pointer: fine) {
+    .generate-new-card:hover, 
+    .info-icon:hover, 
+    #skip-player:hover {
+        transform: scale(1.1); /* Slightly increase on hover */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add subtle shadow */
+    }
+}
