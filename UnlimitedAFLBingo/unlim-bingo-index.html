@@ -25,8 +25,14 @@
 
     <div class="container">
         <!-- Back to Homepage Button -->
-        <a href="../index.html" class="back-to-home">Back to Homepage</a>
-        
+<button id="back-to-home" class="back-to-home">Back to Homepage</button>
+
+<script>
+    // Redirect to the homepage
+    document.getElementById('back-to-home').addEventListener('click', function () {
+        window.location.href = "../index.html"; // One level up to root directory
+    });
+</script>
         <!-- Info Icon -->
         <div class="info-icon" id="info-icon">
             <i class="fas fa-info-circle"></i>

@@ -25,8 +25,15 @@
 
     <div class="container">
         <!-- Back to Homepage Button -->
-        <button id="back-to-home" class="back-to-home">Back to Homepage</button>
-        
+<button id="back-to-home" class="back-to-home">Back to Homepage</button>
+
+<script>
+    // Redirect to the homepage
+    document.getElementById('back-to-home').addEventListener('click', function () {
+        window.location.href = "../index.html"; // One level up to root directory
+    });
+</script>
+
         <!-- Info Icon -->
         <div class="info-icon" id="info-icon">
             <i class="fas fa-info-circle"></i>
@@ -87,8 +94,8 @@
         <div id="info-popup" class="info-popup">
             <div class="popup-content">
                 <span id="close-popup" class="close-popup">&times;</span>
-                <h2>How to Play AFL Bingo</h2>
-                <p>AFL Bingo is a challenge to complete the bingo card that is randomly generated each time, a random player will appear at the bottom of the screen until you have used all 42 of your randomly generated players.</p>
+                <h2>How to Play AFL Bingo Daily Challenge</h2>
+                <p>AFL Bingo Daily is a challenge to complete the bingo card that is randomly generated each time, a random player will appear at the bottom of the screen until you have used all 42 of your randomly generated players. Every 24 hours, a new card will be generated. This resets daily at 6am AEST.</p>
                 <p>For example, if Elliot Yeo appears, he can be used to tick either Victorian or West Coast Eagles. If he fits none of the options on the card, you can skip to the next player. If you incorrectly place a player in a category, you will lose 2 attempts.</p>
                 <p>Categories can include home state, teams played for, accolades and more!</p>
                 <p>Good luck!</p>
@@ -96,6 +103,13 @@
         </div>
     </div>
 
+    <!-- Script Section -->
+    <script>
+        // Back to Homepage Function
+        document.getElementById('back-to-home').addEventListener('click', function () {
+            window.location.href = '../index.html';
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
