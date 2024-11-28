@@ -8,15 +8,19 @@
     <!-- Favicon -->
     <link rel="icon" href="../favicon.png" type="image/x-icon">
 
+    <!-- Open Graph Metadata -->
     <meta property="og:title" content="AFL Bingo">
-    <meta property="og:description" content="AFL Bingo is a challenge to complete a randomly generated bingo card, by matching a random player with a category on the card.">
+    <meta property="og:description" content="AFL Bingo is a challenge to complete a randomly generated bingo card by matching a random player with a category on the card.">
     <meta property="og:image" content="../web-image.png">
     <meta property="og:url" content="http://aflbingo.games">
     <meta property="og:type" content="website">
 
+    <!-- CSS -->
     <link rel="stylesheet" href="../styles.css">
     <!-- FontAwesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5441997790634206" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -27,12 +31,6 @@
         <!-- Back to Homepage Button -->
         <button id="back-to-home" class="back-to-home">Back to Homepage</button>
 
-        <script>
-        // Redirect to the homepage
-        document.getElementById('back-to-home').addEventListener('click', function () {
-        window.location.href = "../index.html"; // One level up to root directory
-        });
-        </script>
         <!-- Info Icon -->
         <div class="info-icon" id="info-icon">
             <i class="fas fa-info-circle"></i>
@@ -63,18 +61,17 @@
 
         <!-- Horizontal Ad Slot for Mobile -->
         <div class="ad-slot" id="ad-slot">
-            <!-- Ad code here -->
             <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
             <ins class="adsbygoogle"
-                style="display:block"
-                data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-                data-ad-slot="YYYYYYYYYY"
-                data-ad-format="auto"
-                data-full-width-responsive="true"></ins>
+                 style="display:block"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="YYYYYYYYYY"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
-         </div>
+        </div>
 
         <!-- Social Media Links -->
         <div class="social-media-icons">
@@ -97,15 +94,23 @@
             <div class="popup-content">
                 <span id="close-popup" class="close-popup">&times;</span>
                 <h2>How to Play AFL Bingo</h2>
-                <p>AFL Bingo is a challenge to complete the bingo card that is randomly generated each time, a random player will appear at the bottom of the screen until you have used all 42 of your randomly generated players.</p>
+                <p>AFL Bingo is a challenge to complete the bingo card that is randomly generated each time. A random player will appear at the bottom of the screen until you have used all 42 of your randomly generated players.</p>
                 <p>For example, if Elliot Yeo appears, he can be used to tick either Victorian or West Coast Eagles. If he fits none of the options on the card, you can skip to the next player. If you incorrectly place a player in a category, you will lose 2 attempts.</p>
-                <p>Categories can include home state, teams played for, accolades and more!</p>
+                <p>Categories can include home state, teams played for, accolades, and more!</p>
                 <p>Good luck!</p>
             </div>
         </div>
     </div>
 
+    <!-- JavaScript -->
+    <script>
+        // Redirect to the homepage
+        document.getElementById('back-to-home').addEventListener('click', function () {
+            window.location.href = "../index.html"; // One level up to the root directory
+        });
+    </script>
     <script src="../script.js"></script>
 </body>
 </html>
+
 
